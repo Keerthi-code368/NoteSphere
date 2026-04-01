@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NoteSphere</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Categories</h2>
+    <button class="category-btn">Study</button>
+    <button class="category-btn">Professional</button>
+</div>
+
+<div class="subsections">
+    <h2>Subsections</h2>
+    <ul id="subsectionList"></ul>
+
+    <input id="newSubInput" placeholder="New subsection..." />
+    <button id="addSubsectionBtn">Add</button>
+</div>
+
+<div class="main">
+    <div class="topbar">
+        <button id="themeToggle">🌙</button>
+        <button id="addNoteBtn">Add Note</button>
+    </div>
+
+    <ul id="notesList"></ul>
+
+    <textarea placeholder="Write your note here..."></textarea>
+</div>
+
+<script src="scripts/app.js"></script>
+</body>
+</html>

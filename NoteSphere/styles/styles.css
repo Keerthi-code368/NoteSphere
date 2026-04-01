@@ -1,0 +1,258 @@
+:root {
+    --primary: #6a5acd;
+    --primary-light: #d9d6ff;
+    --bg: #f5f5f7;
+    --white: #ffffff;
+    --shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background: var(--bg);
+    color: #333;
+}
+
+button, input, textarea {
+    transition: 0.25s ease;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 200px;
+    background: var(--white);
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    box-shadow: var(--shadow);
+}
+
+.sidebar h2 {
+    margin-bottom: 15px;
+}
+
+.sidebar button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border: none;
+    background: var(--primary-light);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.sidebar button:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.sidebar button.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* SUBSECTIONS */
+.subsections {
+    width: 250px;
+    background: #fafafa;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.subsections h2 {
+    margin-bottom: 10px;
+}
+
+.subsections ul {
+    list-style: none;
+}
+
+.subsections li {
+    padding: 10px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-bottom: 8px;
+    background: #f1f1ff;
+}
+
+#addSubsectionBtn {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--primary-light);
+    cursor: pointer;
+}
+
+.subsections li:hover {
+    background: var(--primary-light);
+    transform: translateX(3px);
+}
+
+.subsections li.active {
+    background: var(--primary);
+    color: white;
+}
+
+
+
+/* MAIN AREA */
+.main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.topbar input {
+    flex: 1;
+    padding: 10px;
+    border-radius: var(--radius);
+    border: 1px solid #ccc;
+}
+
+.topbar button {
+    padding: 10px 20px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+.topbar button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.topbar button:active {
+    transform: scale(0.97);
+}
+
+textarea {
+    flex: 1;
+    border-radius: var(--radius);
+    border: 1px solid #ccc;
+    padding: 15px;
+    resize: none;
+    font-size: 15px;
+    line-height: 1.5;
+    background: var(--white);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .sidebar { width: 160px; }
+    .subsections { width: 200px; }
+}
+
+@media (max-width: 700px) {
+    body { flex-direction: column; }
+    .sidebar, .subsections {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+    .sidebar button { margin: 0 5px; white-space: nowrap; }
+    .subsections li { margin-right: 12px; white-space: nowrap; }
+}
+
+@media (max-width: 500px) {
+    .topbar { flex-direction: column; }
+    .topbar button { width: 100%; }
+    textarea { height: 300px; }
+}
+
+body.dark {
+    background: #1e1e2f;
+    color: #eaeaea;
+}
+
+body.dark .sidebar,
+body.dark .subsections,
+body.dark .main {
+    background: #2a2a3c;
+    color: #eaeaea;
+}
+
+body.dark .subsections li {
+    background: #3a3a55;
+    color: #ffffff;
+}
+
+body.dark .subsections li.active {
+    background: var(--primary);
+    color: white;
+}
+
+body.dark textarea {
+    background: #1f1f2e;
+    color: white;
+    border-color: #555;
+}
+
+body.dark input {
+    background: #1f1f2e;
+    color: white;
+    border-color: #555;
+}
+
+
+#notesList {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+#notesList li {
+    padding: 8px;
+    background: #eee;
+    margin-bottom: 6px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#categoryList li,
+#subsectionList li {
+    padding: 10px;
+    margin-bottom: 6px;
+    background: #f1f1ff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#categoryList li.active,
+#subsectionList li.active {
+    background: var(--primary);
+    color: white;
+}
+
+#notesList li {
+    display: flex;
+    justify-content: space-between;
+    background: #eee;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+}
+
+body.dark #notesList li {
+    background: #3a3a55;
+    color: white;
+}
